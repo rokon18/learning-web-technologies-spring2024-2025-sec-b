@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <form method="" action="homepage.html" onsubmit="return validateForm()">  
+        <fieldset>
+        <legend>Signin</legend>
+        <table>
+        <tr>
+            <td>Username</td>
+             <td><input type="text" id="username" name="username" value=""></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" id="password" name="password" value=""></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <p id="msg"></p>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let msg = document.getElementById('msg');
+
+            if (username == "") {
+                msg.innerHTML = "Please enter your username!";
+                msg.style.color = 'red';
+                return false;
+            } else if (password == "") {
+                msg.innerHTML = "Please enter your password!";
+                msg.style.color = 'red';
+                return false;
+            }else if (!(username == password)) { 
+                msg.innerHTML = "Username and password must be the same!";
+                msg.style.color = 'red';
+                return false;
+            } else  {
+                msg.innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+<html lang="en">
+<head>
+</head>
+<body>
+    
+    <form onsubmit="return validateDegree()">
+        <fieldset><legend>Degree</legend>
+        <input type="checkbox" id="male" name="degree"> SSC
+        <input type="checkbox" id="female" name="degree"> HSC
+        <input type="checkbox" id="other" name="degree"> BSC<br>
+        <p id="msg"></p>
+        <button type="submit" >Submit</button>
+        </fieldset>
+    </form>
+
+    <script>
+        function validateDegree() {
+            let msg = document.getElementById('msg');
+            let selectedDegree = document.querySelector('input[name=degree]:checked');
+            
+            if (selectedDegree) {
+                msg.innerHTML = ""
+                return true;
+            } else {
+                msg.innerHTML = "Please select a degree before submitting.";
+                msg.style.color = "red";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

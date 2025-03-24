@@ -1,0 +1,39 @@
+
+<html lang="en">
+<head>
+</head>
+<body>
+    
+    <form onsubmit="return validateform()">
+        <fieldset><legend>Profile picture</legend>
+            <label>User Id</label>
+        <input type="number" id="uid" name="userid"> <br>
+        <label>Picture</label>
+        <input type="file" id="img" name="image"> 
+  
+        <p id="msg"></p>
+        <hr>
+        <button type="submit" >Submit</button>
+        </fieldset>
+    </form>
+
+    <script>
+        function validateform() {
+            let msg = document.getElementById('msg');
+            let user_Id = document.getElementById("uid").value;
+            let picture = document.getElementById("img").value;
+            
+            if (!user_Id||user_Id<0) {
+                msg.innerHTML = "UserId cannot be empty and has to be a positive number";
+                msg.style.color = "red";
+                return false;
+            } else if(!picture){
+                msg.innerHTML = "Picture cannot be empty ";
+                msg.style.color = "red";
+                return false;
+            }
+            return true
+        }
+    </script>
+</body>
+</html>

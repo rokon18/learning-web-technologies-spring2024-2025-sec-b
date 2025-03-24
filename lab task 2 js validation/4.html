@@ -1,0 +1,49 @@
+
+<html>
+<head>
+  <title>Date of b</title>
+</head>
+<body>
+    <fieldset><legend>Date Of Birth</legend>
+  <form onsubmit="return validateForm()">
+    <table><tr><td>
+        <p>dd</p></td><td>
+        <p>mm</p></td><td>
+        <p>yyyy</p></td></tr>
+        <tr><td> <input type="number" id="day" value=""> </td>
+            <td> <input type="number" id="month" value=""> </td>
+            <td><input type="number" id="year" value=""> </td></tr>
+   
+    </table>
+    <br><hr>
+    <p id="msg"></p>
+    <button type="submit">Submit</button>
+    
+  <script>
+    function validateForm() {
+      let day = document.getElementById("day").value;
+      let month = document.getElementById("month").value;
+      let year = document.getElementById("year").value;
+      let msg = document.getElementById('msg');
+
+    
+      if (!day || !month || !year) {
+        msg.innerHTML = "All fields are required.";
+        msg.style.color = "red";
+        return false;
+      }
+
+  
+      else if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2016) {
+        msg.innerHTML = "Please enter a valid date (dd: 1-31, mm: 1-12, yyyy: 1900-2016)";
+        msg.style.color = "red";
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</fieldset>
+  </form>
+</body>
+</html>
